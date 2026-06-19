@@ -299,30 +299,18 @@
     }
   });
 
-  // Dropdown accordion (tik mobiliame) – tik touchstart, click nieko nedaro
-  nav.addEventListener('touchstart', function (e) {
-    if (window.innerWidth > 900) return;
-    var link = e.target.closest('a');
-    if (!link) return;
-    var item = link.parentElement;
-    if (!item || !item.classList.contains('nav-item')) return;
-    e.preventDefault();
-    e.stopPropagation();
-    var isOpen = item.classList.contains('dd-open');
-    document.querySelectorAll('.nav-item.dd-open').forEach(function (other) {
-      other.classList.remove('dd-open');
+  // Dropdown accordion – klausomės ant .nav-item (ne ant link'o)
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      if (window.innerWidth > 900) return;
+      if (!nav.classList.contains('open')) return;
+      if (e.target.closest('.dropdown')) return;
+      var isOpen = item.classList.contains('dd-open');
+      document.querySelectorAll('.nav-item.dd-open').forEach(function (other) {
+        other.classList.remove('dd-open');
+      });
+      if (!isOpen) item.classList.add('dd-open');
     });
-    if (!isOpen) item.classList.add('dd-open');
-  }, { passive: false });
-
-  nav.addEventListener('click', function (e) {
-    if (window.innerWidth > 900) return;
-    var link = e.target.closest('a');
-    if (!link) return;
-    var item = link.parentElement;
-    if (!item || !item.classList.contains('nav-item')) return;
-    e.preventDefault();
-    e.stopPropagation();
   });
 
   // Uždarymas spaudžiant šalia
