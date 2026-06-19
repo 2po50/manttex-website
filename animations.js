@@ -299,8 +299,8 @@
     }
   });
 
-  // Dropdown accordion (tik mobiliame) – event delegation
-  nav.addEventListener('click', function (e) {
+  // Dropdown accordion (tik mobiliame)
+  function navToggle(e) {
     if (window.innerWidth > 900) return;
     var link = e.target.closest('a');
     if (!link) return;
@@ -313,7 +313,9 @@
       other.classList.remove('dd-open');
     });
     if (!isOpen) item.classList.add('dd-open');
-  });
+  }
+  nav.addEventListener('touchstart', navToggle, { passive: false });
+  nav.addEventListener('click', navToggle);
 
   // Uždarymas spaudžiant šalia
   document.addEventListener('click', function (e) {
