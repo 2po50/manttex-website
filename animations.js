@@ -305,6 +305,8 @@
       if (window.innerWidth > 900) return;
       if (!nav.classList.contains('open')) return;
       if (e.target.closest('.dropdown')) return;
+      e.preventDefault();
+      e.stopPropagation();
       var isOpen = item.classList.contains('dd-open');
       document.querySelectorAll('.nav-item.dd-open').forEach(function (other) {
         other.classList.remove('dd-open');
