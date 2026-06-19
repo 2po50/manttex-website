@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 68" width="258" height="68">
+  <defs>
+    <!-- Šablonas SVG koordinatėse: juodas kairėje, 4 spalvos X vietoje -->
+    <pattern id="tp" patternUnits="userSpaceOnUse" x="0" y="0" width="258" height="68">
+      <!-- Viskas juoda (Mantte dalis) -->
+      <rect x="0" y="0" width="258" height="68" fill="#1C1917"/>
+      <!-- X raidė: 4 įstrižainiai trikampiai, centras x=231 y=33 -->
+      <!-- X pradžia x≈210, pabaiga x≈253 -->
+      <polygon points="210,5 253,5 231,33"  fill="#e63946"/>
+      <polygon points="253,5 253,63 231,33"  fill="#2dc653"/>
+      <polygon points="253,63 210,63 231,33" fill="#2563eb"/>
+      <polygon points="210,63 210,5 231,33"  fill="#eab308"/>
+    </pattern>
+  </defs>
+
+  <!-- Visas tekstas viename elemente — taisyklingas tarpavimas -->
+  <text x="5" y="56"
+    font-family="'Arial Black', 'Arial Bold', Arial, sans-serif"
+    font-weight="900"
+    font-size="52"
+    fill="url(#tp)"
+    letter-spacing="-1">ManttеX</text>
+</svg>

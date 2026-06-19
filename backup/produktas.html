@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ManttеX — Produktas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-hours">
+        <span class="dot"></span>
+        <span id="tb-valandos"></span>
+      </div>
+      <div class="topbar-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a id="tb-telefonas" href="#"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <div class="logo-wrap">
+        <a href="index.html">
+          <img src="logo.svg" alt="ManttеX logotipas" class="logo-img" />
+        </a>
+        <div class="logo-tagline">Roletai ir žaliuzės<br/>visų tipų langams</div>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="index.html#produktai">Produktai</a>
+        <a href="index.html#apie">Apie mus</a>
+        <a href="index.html#uzklausos">Kontaktai</a>
+      </nav>
+      <a href="index.html#uzklausos" class="btn btn-primary nav-cta">Siųsti užklausą</a>
+      <button class="burger" id="burger" aria-label="Meniu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="index.html">← Grįžti į pagrindinį</a>
+    </div>
+  </div>
+
+  <!-- PRODUKTO TURINYS -->
+  <section class="section-light" id="produktas-sekcija">
+    <div class="container">
+      <div class="product-detail" id="produktas-detail">
+        <!-- Užpildoma iš turinys.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- KITI PRODUKTAI -->
+  <section class="section-gray">
+    <div class="container">
+      <div class="section-header">
+        <h2>Kiti produktai</h2>
+      </div>
+      <div class="products-grid" id="kiti-produktai"></div>
+    </div>
+  </section>
+
+  <!-- FORMA -->
+  <section class="section-dark" id="uzklausos">
+    <div class="container">
+      <div class="section-header light">
+        <h2 id="forma-antraste"></h2>
+        <p id="forma-aprasymas"></p>
+      </div>
+      <div class="form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label id="lbl-vardas"></label>
+              <input type="text" id="vardas" name="vardas" required />
+            </div>
+            <div class="form-group">
+              <label id="lbl-email"></label>
+              <input type="email" id="email" name="email" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label id="lbl-telefonas"></label>
+              <input type="tel" id="telefonas" name="telefonas" />
+            </div>
+            <div class="form-group">
+              <label id="lbl-produktas"></label>
+              <select id="produktas-sel" name="produktas">
+                <option value="">— Pasirinkite —</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="lbl-zinute"></label>
+            <textarea id="zinute" name="zinute" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full" id="forma-mygtukas"></button>
+          <div class="form-success" id="formSuccess"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="baltaslogo.png" alt="ManttеX" class="logo-img footer-logo-img" />
+      </div>
+      <p class="footer-copy" id="footer-tekstas"></p>
+      <nav class="footer-nav">
+        <a href="index.html#produktai">Produktai</a>
+        <a href="index.html#apie">Apie mus</a>
+        <a href="index.html#uzklausos">Užklausa</a>
+        <a href="index.html#kontaktai">Kontaktai</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="turinys.js"></script>
+  <script src="produktas.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>

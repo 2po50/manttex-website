@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ManttеX &mdash; Tinkleliai durims</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="container header-top-inner">
+        <div class="logo-wrap">
+          <a href="index.html"><img src="logo.png" alt="ManttеX" class="logo-img" /></a>
+          <div class="logo-tagline">Roletai ir &zcaron;aliuz&ecirc;s<br/>vis&#371; tip&#371; langams</div>
+        </div>
+        <a href="index.html#uzklausos" class="btn btn-primary header-cta">Si&#371;sti u&#382;klaus&#261;</a>
+        <div class="header-phone-wrap">
+          <div class="header-phone-hours"><span class="dot"></span> I&ndash;V nuo 8:00 iki 18:00</div>
+          <a href="tel:+37064255550" class="header-phone-num">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +370 642 55550
+          </a>
+        </div>
+        <button class="burger" id="burger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="header-nav-row" id="nav">
+      <div class="container">
+                <nav class="nav">
+          <a href="index.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1 L15 7 L15 14 Q15 15 14 15 L11 15 L11 10 L5 10 L5 15 L2 15 Q1 15 1 14 L1 7 Z" opacity="0.85"/></svg> Pagrindinis</a>
+          <div class="nav-item">
+            <a href="kasetiniai.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor"><rect x="1" y="1" width="14" height="3" rx="1.5" fill="currentColor" stroke="none"/><rect x="2" y="4" width="12" height="9" rx="1" stroke-width="1.5"/><line x1="2" y1="7.5" x2="14" y2="7.5" stroke-width="0.8" opacity="0.5"/><line x1="2" y1="10.5" x2="14" y2="10.5" stroke-width="0.8" opacity="0.5"/></svg> Roletai <span class="arrow">&#9660;</span></a>
+            <div class="dropdown">
+              <div class="dropdown-label">Roletai</div>
+              <a href="kasetiniai.html" class="dd-item"><div class="dd-icon-wrap dd-blue"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="4" rx="2" fill="currentColor" stroke="none"/><rect x="2" y="5" width="14" height="10" rx="1" stroke-width="1.5"/><line x1="2" y1="9" x2="16" y2="9" stroke-width="0.8" opacity="0.5"/></svg></div><div><div class="dd-title">Kasetiniai roletai</div><div class="dd-desc">Audinio galai slepiami kaset&#279;je &#8212; moderni ir tvarkinga i&#353;vaizda.</div></div></a>
+              <a href="klasikiniai.html" class="dd-item"><div class="dd-icon-wrap dd-blue"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="3" rx="1.5" fill="currentColor" stroke="none"/><rect x="2" y="4" width="14" height="11" rx="1" stroke-width="1.5"/><line x1="2" y1="8" x2="16" y2="8" stroke-width="0.8" opacity="0.5"/><line x1="2" y1="11.5" x2="16" y2="11.5" stroke-width="0.8" opacity="0.5"/></svg></div><div><div class="dd-title">Klasikiniai roletai</div><div class="dd-desc">Paprastas ir funkcionalus sprendimas &#8212; platus audini&#371; pasirinkimas.</div></div></a>
+              <a href="diena-naktis.html" class="dd-item"><div class="dd-icon-wrap dd-purple"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="3" rx="1.5" fill="currentColor" stroke="none"/><rect x="2" y="4" width="14" height="4" rx="1" fill="currentColor" opacity="0.8" stroke="none"/><rect x="2" y="9" width="14" height="2.5" rx="1" stroke-width="0" fill="currentColor" opacity="0.4"/><rect x="2" y="13" width="14" height="2.5" rx="1" fill="currentColor" opacity="0.8" stroke="none"/></svg></div><div><div class="dd-title">Diena / Naktis roletai</div><div class="dd-desc">Dvigubas audinys &#8212; reguliuokite &#353;vies&#261; ir privatum&#261; pagal poreik&#237;.</div></div></a>
+              <a href="silumai-atspariai.html" class="dd-item"><div class="dd-icon-wrap dd-amber"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="3" rx="1.5" fill="currentColor" stroke="none"/><rect x="2" y="4" width="14" height="11" rx="1" stroke-width="1.5"/><path d="M5 10 Q9 7 13 10" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div class="dd-title">&#352;ilumai atsparu&#251;s roletai</div><div class="dd-desc">Specialus audinys sulaikia &#353;ilum&#261; &#8212; ma&#382;esnios &#353;ildymo s&#261;naudos.</div></div></a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="horizontalios-zaliuzes.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><rect x="0" y="1" width="16" height="2" rx="1"/><rect x="0" y="5" width="16" height="2" rx="1"/><rect x="0" y="9" width="16" height="2" rx="1"/><rect x="0" y="13" width="16" height="2" rx="1"/></svg> &#381;aliuz&#279;s <span class="arrow">&#9660;</span></a>
+            <div class="dropdown">
+              <div class="dropdown-label">&#381;aliuz&#279;s</div>
+              <a href="horizontalios-zaliuzes.html" class="dd-item"><div class="dd-icon-wrap dd-green"><svg viewBox="0 0 18 18" fill="currentColor"><rect x="0" y="2" width="18" height="2.5" rx="1"/><rect x="0" y="6.5" width="18" height="2.5" rx="1"/><rect x="0" y="11" width="18" height="2.5" rx="1"/><rect x="0" y="15.5" width="18" height="2.5" rx="1"/></svg></div><div><div class="dd-title">Horizontalios &#382;aliuz&#279;s</div><div class="dd-desc">Klasikin&#279;s aliuminin&#279;s lamel&#279;s &#8212; tikslus &#353;viesos kampo reguliavimas.</div></div></a>
+              <a href="plisuotos-zaliuzes.html" class="dd-item"><div class="dd-icon-wrap dd-teal"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="2.5" rx="1" fill="currentColor" stroke="none"/><path d="M2 3.5 L2 14 Q9 17 16 14 L16 3.5" stroke-width="1.5"/><line x1="2" y1="7" x2="16" y2="7" stroke-width="0.8" opacity="0.5"/><line x1="2" y1="10.5" x2="16" y2="10.5" stroke-width="0.8" opacity="0.5"/></svg></div><div><div class="dd-title">Plisuotos &#382;aliuz&#279;s</div><div class="dd-desc">Subtilos ir lengvos &#8212; puikiausiai tinka &#353;iuolaikiniams interjerams.</div></div></a>
+              <a href="medines-zaliuzes.html" class="dd-item"><div class="dd-icon-wrap dd-brown"><svg viewBox="0 0 18 18" fill="currentColor"><rect x="0" y="2" width="18" height="2.5" rx="1"/><rect x="0" y="6.5" width="18" height="2.5" rx="1" opacity="0.85"/><rect x="0" y="11" width="18" height="2.5" rx="1" opacity="0.7"/><rect x="0" y="15.5" width="18" height="2.5" rx="1" opacity="0.55"/><rect x="8" y="0" width="2" height="18" rx="1" opacity="0.2"/></svg></div><div><div class="dd-title">Medin&#279;s &#382;aliuz&#279;s</div><div class="dd-desc">Nat&#363;ralaus med&#382;io &#353;iluma ir elegancija j&#363;s&#371; namuose.</div></div></a>
+              <a href="vertikalios-zaliuzes.html" class="dd-item"><div class="dd-icon-wrap dd-green"><svg viewBox="0 0 18 18" fill="currentColor"><rect x="0" y="0" width="2.5" height="18" rx="1"/><rect x="4" y="0" width="2.5" height="18" rx="1" opacity="0.85"/><rect x="8" y="0" width="2.5" height="18" rx="1" opacity="0.7"/><rect x="12" y="0" width="2.5" height="18" rx="1" opacity="0.55"/><rect x="15.5" y="0" width="2.5" height="18" rx="1" opacity="0.4"/></svg></div><div><div class="dd-title">Vertikalios &#382;aliuz&#279;s</div><div class="dd-desc">Puikiai tinka platiems langams ir slankiojančioms durims.</div></div></a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="tinkleliai-remeliai.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor"><rect x="1" y="1" width="14" height="14" rx="1" stroke-width="1.5"/><line x1="1" y1="5.5" x2="15" y2="5.5" stroke-width="0.75"/><line x1="1" y1="9" x2="15" y2="9" stroke-width="0.75"/><line x1="1" y1="12.5" x2="15" y2="12.5" stroke-width="0.75"/><line x1="5.5" y1="1" x2="5.5" y2="15" stroke-width="0.75"/><line x1="9" y1="1" x2="9" y2="15" stroke-width="0.75"/><line x1="12.5" y1="1" x2="12.5" y2="15" stroke-width="0.75"/></svg> Tinkleliai <span class="arrow">&#9660;</span></a>
+            <div class="dropdown">
+              <div class="dropdown-label">Tinkleliai</div>
+              <a href="tinkleliai-remeliai.html" class="dd-item"><div class="dd-icon-wrap dd-slate"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="16" rx="2" stroke-width="2"/><rect x="4" y="4" width="10" height="10" rx="1" stroke-width="0.75"/><line x1="4" y1="7" x2="14" y2="7" stroke-width="0.75"/><line x1="4" y1="10" x2="14" y2="10" stroke-width="0.75"/><line x1="7" y1="4" x2="7" y2="14" stroke-width="0.75"/><line x1="10" y1="4" x2="10" y2="14" stroke-width="0.75"/></svg></div><div><div class="dd-title">Tinkleliai r&#279;meliai</div><div class="dd-desc">Fiksuoti tinkleliai langams &#8212; patikima apsauga nuo vabzd&#382;i&#371;.</div></div></a>
+              <a href="tinkleliai-durims.html" class="dd-item"><div class="dd-icon-wrap dd-slate"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="3" y="1" width="12" height="16" rx="1.5" stroke-width="1.5"/><rect x="5" y="3" width="8" height="12" stroke-width="0.75"/><line x1="5" y1="6" x2="13" y2="6" stroke-width="0.75"/><line x1="5" y1="9" x2="13" y2="9" stroke-width="0.75"/><line x1="5" y1="12" x2="13" y2="12" stroke-width="0.75"/><line x1="8" y1="3" x2="8" y2="15" stroke-width="0.75"/><line x1="10" y1="3" x2="10" y2="15" stroke-width="0.75"/></svg></div><div><div class="dd-title">Tinkleliai durims</div><div class="dd-desc">Special&#363;s tinkleliai durims &#8212; oras cirkuliuoja, vabzd&#382;iai laukuje.</div></div></a>
+              <a href="tinkleliai-roletai.html" class="dd-item"><div class="dd-icon-wrap dd-slate"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor"><rect x="1" y="1" width="16" height="3" rx="1.5" fill="currentColor" stroke="none"/><rect x="2" y="4" width="14" height="10" rx="1" stroke-width="1.5"/><line x1="2" y1="7" x2="16" y2="7" stroke-width="0.75"/><line x1="2" y1="10" x2="16" y2="10" stroke-width="0.75"/><line x1="5" y1="4" x2="5" y2="14" stroke-width="0.75"/><line x1="9" y1="4" x2="9" y2="14" stroke-width="0.75"/><line x1="13" y1="4" x2="13" y2="14" stroke-width="0.75"/></svg></div><div><div class="dd-title">Tinkleliai roletai</div><div class="dd-desc">Susisukantys tinkleliai &#8212; patog&#363;s ir tvarkingai paslepiami.</div></div></a>
+            </div>
+          </div>
+          <a href="darbu-pavyzdziai.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg> Darb&#371; pavyzd&#382;iai</a>
+          <a href="atsiliepimai.html"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 L9.6 5.3 L13.7 5.6 L10.7 8.2 L11.7 12.2 L8 9.9 L4.3 12.2 L5.3 8.2 L2.3 5.6 L6.4 5.3 Z"/></svg> Atsiliepimai</a>
+          <a href="index.html#apie"><svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><circle cx="5.5" cy="4" r="2.5"/><path d="M1 13 C1 10 3 8.5 5.5 8.5 C8 8.5 10 10 10 13"/><circle cx="12" cy="5" r="2"/><path d="M10 13 C10 11.5 11 10.5 12.5 10.5 C14 10.5 15 11.5 15 13"/></svg> Apie mus</a>
+          <a href="index.html#kontaktai"><svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke-width="1.5"/><path d="M1 5 L8 9.5 L15 5" stroke-width="1.5" stroke-linejoin="round"/></svg> Kontaktai</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="breadcrumb-bar">
+    <div class="container"><a href="index.html">&larr; Gr&#303;&zcaron;ti &iacute; pagrindin&#303;</a></div>
+  </div>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="product-detail">
+        <div class="product-detail-text">
+          <span class="product-tag slate">Durims</span>
+          <h2>Tinkleliai durims</h2>
+          <p>Specialūs tinkleliai durims su magneline arba spyruokline u&#382;darymo sistema. Oras laisvai cirkuliuoja &#8212; vabzd&#382;iai lieka lauke.</p>
+          <ul class="feature-list">
+            <li>Magnetin&#279;s arba spyruoklines durys</li>
+            <li>Lengvas a&#382;uojimas ir u&#382;sidarymas</li>
+            <li>Tinka terasoms ir balkonams</li>
+            <li>Pede&#353;triniu&#371; ir bitumin&#279;s variantai</li>
+            <li>Gamyba pagal durų i&#353;matavimus</li>
+          </ul>
+          <a href="#uzklausos" class="btn btn-primary btn-lg">Gauti pasiu&#333;lym&#261;</a>
+        </div>
+        <div class="product-detail-img blue-placeholder placeholder-img">
+          <span>&Ccaron;ia bus tinkleliai durims nuotrauka</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark" id="uzklausos">
+    <div class="container">
+      <div class="section-header light"><h2>Si&#371;sti u&#382;klaus&#261;</h2><p>U&#382;pildykite form&#261; &mdash; susisieksime per 24 val.</p></div>
+      <div class="form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label>Vardas *</label><input type="text" required /></div>
+            <div class="form-group"><label>El. pa&#353;tas</label><input type="email" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Telefonas</label><input type="tel" /></div>
+            <div class="form-group"><label>Domina produktas</label>
+              <select><option>Tinkleliai durims</option><option>Kasetiniai roletai</option><option>Klasikiniai roletai</option><option>Diena/Naktis roletai</option><option>&Scaron;ilumai atsparu&#251;s roletai</option><option>Horizontalios &#382;aliuz&#279;s</option><option>Plisuotos &#382;aliuz&#279;s</option><option>Medin&#279;s &#382;aliuz&#279;s</option><option>Vertikalios &#382;aliuz&#279;s</option><option>Tinkleliai r&#279;meliai</option><option>Tinkleliai durims</option><option>Tinkleliai roletai</option></select>
+            </div>
+          </div>
+          <div class="form-group"><label>&#381;inut&#279; *</label><textarea rows="5" required></textarea></div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full">Si&#371;sti u&#382;klaus&#261;</button>
+          <div class="form-success" id="formSuccess">&#10003; A&#269;i&#363;! Susisieksime su jumis artimausiu metu.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <img src="baltaslogo.png" alt="ManttеX" class="logo-img footer-logo-img" />
+      <p class="footer-copy">&copy; 2025 ManttеX. Visos teis&#279;s saugomos.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Pagrindinis</a>
+        <a href="index.html#uzklausos">U&#382;klausa</a>
+        <a href="index.html#kontaktai">Kontaktai</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', function() { document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10); });
+    var burger = document.getElementById('burger');
+    var navRow = document.getElementById('nav');
+    burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
+    document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
+    document.querySelector('.contact-form').addEventListener('submit', function(e) { e.preventDefault(); document.getElementById('formSuccess').classList.add('show'); this.reset(); });
+  </script>
+<script src="animations.js"></script>
+</body>
+</html>
