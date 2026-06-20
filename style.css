@@ -1404,14 +1404,28 @@ body { animation: pageFadeIn 0.35s ease both; }
 
 /* PDP responsive */
 @media (max-width: 900px) {
-  .pdp-grid { grid-template-columns: 1fr; gap: 36px; }
+  .pdp-hero { padding: 32px 0 36px; }
+  .pdp-grid { grid-template-columns: 1fr; gap: 28px; }
   .pdp-img-wrap { aspect-ratio: 4 / 3; position: static; }
   .fabric-grid { grid-template-columns: repeat(3, 1fr); }
   .steps-row { grid-template-columns: 1fr; gap: 20px; }
+  /* Galerija rodoma virš teksto mobiliame */
+  .pdp-gallery { order: -1; }
+  /* Tekstas kairėje pusėje mobiliame */
+  .pdp-grid > div:first-child { align-items: flex-start; text-align: left; }
+  .pdp-grid > div:first-child .pdp-accents { justify-content: flex-start; }
+  .pdp-grid > div:first-child .pdp-cta-row { justify-content: flex-start; }
+  .pdp-badges { justify-content: flex-start; }
 }
 @media (max-width: 540px) {
   .spec-row { grid-template-columns: 1fr; }
   .spec-label { border-right: none; border-bottom: 1px solid var(--border); }
+  .pdp-gallery-main { max-height: 280px; }
+  .pdp-thumb { width: 58px; height: 43px; }
+  .pdp-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .pdp-cta-row .btn { text-align: center; }
+  .pdp-phone-link { justify-content: center; }
+  .pdp-title { font-size: clamp(1.6rem, 7vw, 2rem); }
 }
 /* ── Cookie banner ──────────────────────────────────────────── */
 .cookie-banner {
