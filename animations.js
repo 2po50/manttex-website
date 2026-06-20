@@ -299,11 +299,16 @@
     }
   });
 
-  // Dropdown accordion – tiesiogiai ant <a> su preventDefault
+  // Dropdown accordion – pašalinam href kad naršyklė negalėtų naviguoti
   document.querySelectorAll('.nav-item > a').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      if (window.innerWidth > 900) return;
-      e.preventDefault();
+    var origHref = link.getAttribute('href');
+    link.removeAttribute('href');
+    link.style.cursor = 'pointer';
+    link.addEventListener('click', function () {
+      if (window.innerWidth > 900) {
+        window.location.href = origHref;
+        return;
+      }
       var item = link.closest('.nav-item');
       var wasOpen = item.classList.contains('dd-open');
       document.querySelectorAll('.nav-item.dd-open').forEach(function (el) {
