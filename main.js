@@ -54,7 +54,7 @@ function uzpildytiPuslapį() {
         '<div class="product-icon">' + (IKONU_SVG[p.spalva] || '') + '</div>' +
         '<h3>' + p.pavadinimas + '</h3>' +
         '<p>' + p.aprasymas + '</p>' +
-        '<span class="card-link">Sužinoti daugiau →</span>' +
+        '<span class="card-link">Sužinoti daugiau</span>' +
         '</a>';
     }).join('');
   }
@@ -150,3 +150,4 @@ window.__navDone = true;
 
 // ── Paleisti ─────────────────────────────────────────────────
 uzpildytiPuslapį();
+
