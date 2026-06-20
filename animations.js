@@ -299,24 +299,21 @@
     }
   });
 
-  // Dropdown accordion – pašalinam href kad naršyklė negalėtų naviguoti
-  document.querySelectorAll('.nav-item > a').forEach(function (link) {
-    var origHref = link.getAttribute('href');
-    link.removeAttribute('href');
-    link.style.cursor = 'pointer';
-    link.addEventListener('click', function () {
-      if (window.innerWidth > 900) {
-        window.location.href = origHref;
-        return;
-      }
-      var item = link.closest('.nav-item');
-      var wasOpen = item.classList.contains('dd-open');
-      document.querySelectorAll('.nav-item.dd-open').forEach(function (el) {
-        el.classList.remove('dd-open');
+  // Dropdown accordion (kitiem puslapiams – index.html naudoja main.js)
+  if (!window.__navDone) {
+    document.querySelectorAll('.nav-item > a').forEach(function (link) {
+      var oh = link.getAttribute('href');
+      link.removeAttribute('href');
+      link.style.cursor = 'pointer';
+      link.addEventListener('click', function () {
+        if (window.innerWidth > 900) { window.location.href = oh; return; }
+        var item = link.closest('.nav-item');
+        var was = item.classList.contains('dd-open');
+        document.querySelectorAll('.nav-item.dd-open').forEach(function (el) { el.classList.remove('dd-open'); });
+        if (!was) item.classList.add('dd-open');
       });
-      if (!wasOpen) item.classList.add('dd-open');
     });
-  });
+  }
 
   // Uždarymas spaudžiant šalia
   document.addEventListener('click', function (e) {
