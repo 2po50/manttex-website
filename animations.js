@@ -299,19 +299,17 @@
     }
   });
 
-  // Dropdown accordion – klausomės ant .nav-item (ne ant link'o)
-  document.querySelectorAll('.nav-item').forEach(function (item) {
-    item.addEventListener('click', function (e) {
+  // Dropdown accordion – tiesiogiai ant <a> su preventDefault
+  document.querySelectorAll('.nav-item > a').forEach(function (link) {
+    link.addEventListener('click', function (e) {
       if (window.innerWidth > 900) return;
-      if (!nav.classList.contains('open')) return;
-      if (e.target.closest('.dropdown')) return;
       e.preventDefault();
-      e.stopPropagation();
-      var isOpen = item.classList.contains('dd-open');
-      document.querySelectorAll('.nav-item.dd-open').forEach(function (other) {
-        other.classList.remove('dd-open');
+      var item = link.closest('.nav-item');
+      var wasOpen = item.classList.contains('dd-open');
+      document.querySelectorAll('.nav-item.dd-open').forEach(function (el) {
+        el.classList.remove('dd-open');
       });
-      if (!isOpen) item.classList.add('dd-open');
+      if (!wasOpen) item.classList.add('dd-open');
     });
   });
 

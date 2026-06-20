@@ -791,8 +791,6 @@ body { animation: pageFadeIn 0.35s ease both; }
   .nav.open .nav-item.dd-open > a .arrow { transform: rotate(180deg); opacity: 1; }
   .nav.open .nav-item.dd-open > a { color: var(--accent); }
   .nav-item:hover .dropdown { display: none; }
-  .nav.open .nav-item > a { pointer-events: none; }
-  .nav.open .nav-item { cursor: pointer; }
   .nav.open .dropdown {
     display: none;
     position: static;
