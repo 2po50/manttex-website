@@ -6,7 +6,7 @@
   <title>ManttеX &mdash; Plisuotos žaliuzės</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
   <!-- HEADER -->
@@ -78,7 +78,7 @@
     <div class="container">
       <div class="pdp-grid">
         <div>
-          <span class="pdp-badge">Elegancija</span>
+          <div class="pdp-badges"><span class="pdp-badge"><svg width="15" height="15" viewBox="0 0 13 13" fill="currentColor"><path d="M6.5 1.5l1.25 2.54 2.8.4-2.02 1.97.48 2.79L6.5 7.9 3.99 9.2l.48-2.79L2.45 4.44l2.8-.4z"/></svg>Elegancija</span></div>
           <h1 class="pdp-title">Plisuotos žaliuzės</h1>
           <p class="pdp-intro">Subtilus klostuoto audinio sprendimas – švelnia šviesa užpildo kambarį ir suteikia jam jaukumo. Idealios mansardoms ir nestandardiniams langams.</p>
           <ul class="pdp-features">
@@ -101,8 +101,21 @@
             </a>
           </div>
         </div>
-        <div class="pdp-img-wrap teal-placeholder">
-          <span>Plisuotos žaliuzės nuotrauka</span>
+        <div class="pdp-gallery">
+          <div class="pdp-gallery-main">
+            <img class="pdp-gallery-img" src="nuotraukos/darbai/plisuotos/IMG_0614.jpeg" alt="Plisuotos žaliuzės">
+            <button class="pdp-gbtn pdp-gbtn-prev">&#10094;</button>
+            <button class="pdp-gbtn pdp-gbtn-next">&#10095;</button>
+            <div class="pdp-gcounter">1 / 6</div>
+          </div>
+          <div class="pdp-thumbs">
+            <img class="pdp-thumb active" src="nuotraukos/darbai/plisuotos/IMG_0614.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/plisuotos/IMG_0616.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/plisuotos/IMG_1806.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/plisuotos/IMG_1807.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/plisuotos/IMG_1978.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/plisuotos/IMG_1979.jpeg" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -219,9 +232,23 @@
     burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
     document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
   </script>
-<script src="animations.js?v=14"></script>
+<script src="animations.js?v=18"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

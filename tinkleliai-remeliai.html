@@ -6,7 +6,7 @@
   <title>ManttеX &mdash; Tinkleliai rėmeliai</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
   <!-- HEADER -->
@@ -78,7 +78,8 @@
     <div class="container">
       <div class="pdp-grid">
         <div>
-          <span class="pdp-badge">Klasikinis</span>
+          <div class="pdp-badges"><span class="pdp-badge"><svg width="15" height="15" viewBox="0 0 13 13" fill="currentColor"><path d="M6.5 1.5l1.25 2.54 2.8.4-2.02 1.97.48 2.79L6.5 7.9 3.99 9.2l.48-2.79L2.45 4.44l2.8-.4z"/></svg>Klasikinis</span>
+          <span class="pdp-badge-sale"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 7L7 1.5h4v4L5.5 11a1 1 0 01-1.41 0l-2.6-2.6A1 1 0 011.5 7z"/><circle cx="9" cy="4" r="0.8" fill="currentColor" stroke="none"/></svg> Nuolaida</span></div>
           <h1 class="pdp-title">Tinkleliai rėmeliai</h1>
           <p class="pdp-intro">Aliuminio rėmelyje įtemptas tinklelis – patikima ir lengvai nuimama apsauga nuo uodų ir vabzdžių. Tvirtinamas be sienos gręžimo, nesunkiai nuimamas žiemos sezonui.</p>
           <ul class="pdp-features">
@@ -101,8 +102,19 @@
             </a>
           </div>
         </div>
-        <div class="pdp-img-wrap slate-placeholder">
-          <span>Tinkleliai rėmeliai nuotrauka</span>
+        <div class="pdp-gallery">
+          <div class="pdp-gallery-main">
+            <img class="pdp-gallery-img" src="nuotraukos/darbai/tinkleliai-remeliai/IMG_0220.jpeg" alt="Tinkleliai rėmeliuose">
+            <button class="pdp-gbtn pdp-gbtn-prev">&#10094;</button>
+            <button class="pdp-gbtn pdp-gbtn-next">&#10095;</button>
+            <div class="pdp-gcounter">1 / 4</div>
+          </div>
+          <div class="pdp-thumbs">
+            <img class="pdp-thumb active" src="nuotraukos/darbai/tinkleliai-remeliai/IMG_0220.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/tinkleliai-remeliai/IMG_0221.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/tinkleliai-remeliai/IMG_0222.jpeg" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/tinkleliai-remeliai/IMG_0223.jpeg" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -219,9 +231,24 @@
     burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
     document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
   </script>
-<script src="animations.js?v=14"></script>
+<script src="animations.js?v=18"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

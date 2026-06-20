@@ -6,7 +6,7 @@
   <title>ManttеX &mdash; Klasikiniai roletai</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
   <!-- HEADER -->
@@ -78,7 +78,7 @@
     <div class="container">
       <div class="pdp-grid">
         <div>
-          <span class="pdp-badge">Universalūs</span>
+          <div class="pdp-badges"><span class="pdp-badge"><svg width="15" height="15" viewBox="0 0 13 13" fill="currentColor"><path d="M6.5 1.5l1.25 2.54 2.8.4-2.02 1.97.48 2.79L6.5 7.9 3.99 9.2l.48-2.79L2.45 4.44l2.8-.4z"/></svg>Universalūs</span></div>
           <h1 class="pdp-title">Klasikiniai roletai</h1>
           <p class="pdp-intro">Atviro veleno roletai – paprastas, tvirtas ir prieinamas sprendimas kiekvienam langui. Montuojami ant sienos, lubų arba lango pagal jūsų poreikį.</p>
           <ul class="pdp-features">
@@ -101,8 +101,10 @@
             </a>
           </div>
         </div>
-        <div class="pdp-img-wrap blue-placeholder">
-          <span>Klasikiniai roletai nuotrauka</span>
+        <div class="pdp-gallery">
+          <div class="pdp-gallery-main blue-placeholder">
+            <span class="pdp-placeholder-text">Klasikiniai roletai</span>
+          </div>
         </div>
       </div>
     </div>
@@ -123,7 +125,7 @@
       <h2 class="pdp-section-title">Techniniai duomenys</h2>
       <div class="specs-table">
         <div class="spec-row"><div class="spec-label">Sudedamosios dalys</div><div class="spec-value">Atviras velenonas, audinys, grandinėlės valdymas</div></div>
-        <div class="spec-row"><div class="spec-label">Valdymas</div><div class="spec-value">Grandinėle (standartiškai) arba elektrine pavara (papildomai)</div></div>
+        <div class="spec-row"><div class="spec-label">Valdymas</div><div class="spec-value">Grandinėle</div></div>
         <div class="spec-row"><div class="spec-label">Montavimas</div><div class="spec-value">Ant sienos, lubų arba lango rėmo</div></div>
         <div class="spec-row"><div class="spec-label">Tinka langams</div><div class="spec-value">Visiems langų tipams</div></div>
       </div>
@@ -219,9 +221,22 @@
     burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
     document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
   </script>
-<script src="animations.js?v=14"></script>
+<script src="animations.js?v=18"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

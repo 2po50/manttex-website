@@ -6,7 +6,7 @@
   <title>ManttеX &mdash; Tinkleliai durims</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
   <!-- HEADER -->
@@ -78,7 +78,7 @@
     <div class="container">
       <div class="pdp-grid">
         <div>
-          <span class="pdp-badge">Durims</span>
+          <div class="pdp-badges"><span class="pdp-badge"><svg width="15" height="15" viewBox="0 0 13 13" fill="currentColor"><path d="M6.5 1.5l1.25 2.54 2.8.4-2.02 1.97.48 2.79L6.5 7.9 3.99 9.2l.48-2.79L2.45 4.44l2.8-.4z"/></svg>Durims</span></div>
           <h1 class="pdp-title">Tinkleliai durims</h1>
           <p class="pdp-intro">Tinklelis su specialiai durims skirtu rėmu – laisvas praėjimas į abi puses apsaugant nuo uodų. Savaiminis užsidarymo mechanizmas veikia net rankas turint užimtas.</p>
           <ul class="pdp-features">
@@ -101,8 +101,10 @@
             </a>
           </div>
         </div>
-        <div class="pdp-img-wrap slate-placeholder">
-          <span>Tinkleliai durims nuotrauka</span>
+        <div class="pdp-gallery">
+          <div class="pdp-gallery-main slate-placeholder">
+            <span class="pdp-placeholder-text">Tinkleliai durims</span>
+          </div>
         </div>
       </div>
     </div>
@@ -219,9 +221,22 @@
     burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
     document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
   </script>
-<script src="animations.js?v=14"></script>
+<script src="animations.js?v=18"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

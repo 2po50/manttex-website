@@ -6,7 +6,7 @@
   <title>ManttеX &mdash; Šilumai atsparūs roletai</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
   <!-- HEADER -->
@@ -78,9 +78,9 @@
     <div class="container">
       <div class="pdp-grid">
         <div>
-          <span class="pdp-badge">Energija</span>
+          <div class="pdp-badges"><span class="pdp-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg> Saulės apsauga</span></div>
           <h1 class="pdp-title">Šilumai atsparūs roletai</h1>
-          <p class="pdp-intro">Sevila / Sola audinys atspindi saulės spindulius – patalpa neperkaista net karštą vasarą. Veikia ir kaip šilumos barjeras žiemą, mažinant šildymo sąnaudas.</p>
+          <p class="pdp-intro">Sevila / Sola audinys atspindi saulės spindulius – patalpa neperkaista net karštą vasarą.</p>
           <ul class="pdp-features">
             <li>Specialus šilumos atspindintis audinys (Sevila / Sola)</li>
             <li>Mažina šildymo ir vėsinimo sąnaudas</li>
@@ -101,8 +101,10 @@
             </a>
           </div>
         </div>
-        <div class="pdp-img-wrap amber-placeholder">
-          <span>Šilumai atsparūs roletai nuotrauka</span>
+        <div class="pdp-gallery">
+          <div class="pdp-gallery-main amber-placeholder">
+            <span class="pdp-placeholder-text">Šilumai atsparūs roletai</span>
+          </div>
         </div>
       </div>
     </div>
@@ -123,7 +125,7 @@
       <h2 class="pdp-section-title">Techniniai duomenys</h2>
       <div class="specs-table">
         <div class="spec-row"><div class="spec-label">Audinys</div><div class="spec-value">Sevila arba Sola (saulės spindulius atspindintis)</div></div>
-        <div class="spec-row"><div class="spec-label">Valdymas</div><div class="spec-value">Grandinėle (standartiškai) arba elektrine pavara (papildomai)</div></div>
+        <div class="spec-row"><div class="spec-label">Valdymas</div><div class="spec-value">Grandinėle</div></div>
         <div class="spec-row"><div class="spec-label">Montavimas</div><div class="spec-value">Ant sienos, lubų arba lango rėmo</div></div>
         <div class="spec-row"><div class="spec-label">Tinka langams</div><div class="spec-value">Visiems langų tipams</div></div>
       </div>
@@ -219,9 +221,22 @@
     burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
     document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
   </script>
-<script src="animations.js?v=14"></script>
+<script src="animations.js?v=18"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

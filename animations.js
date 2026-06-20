@@ -67,10 +67,10 @@
   var floatBtn = document.createElement('button');
   floatBtn.id = 'floatBtn';
   floatBtn.className = 'float-btn';
-  floatBtn.setAttribute('aria-label', 'Gauti pasiūlymą');
+  floatBtn.setAttribute('aria-label', 'Užsakyti išmatavimą');
   floatBtn.innerHTML =
-    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.18 7.59a16 16 0 006.23 6.23l1.45-1.25a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.9v2.02z"/></svg>' +
-    '<span class="float-btn-text">Gauti pasiūlymą</span>';
+    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>' +
+    '<span class="float-btn-text">Užsakyti išmatavimą</span>';
   document.body.appendChild(floatBtn);
 
   // Popup overlay
@@ -188,6 +188,108 @@
     localStorage.setItem('manttex_cookie', 'rejected');
     banner.remove();
   });
+})();
+
+// ── Produkto foto albumas ─────────────────────────────────────
+(function () {
+  var wrap = document.querySelector('.pdp-gallery');
+  if (!wrap) return;
+
+  var mainImg  = wrap.querySelector('.pdp-gallery-img');
+  if (!mainImg) return;
+  var thumbs   = Array.from(wrap.querySelectorAll('.pdp-thumb'));
+  var prevBtn  = wrap.querySelector('.pdp-gbtn-prev');
+  var nextBtn  = wrap.querySelector('.pdp-gbtn-next');
+  var counter  = wrap.querySelector('.pdp-gcounter');
+  var srcs     = thumbs.map(function (t) { return t.src; });
+  var cur      = 0;
+
+  if (srcs.length <= 1) {
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (counter) counter.style.display = 'none';
+  }
+
+  var thumbsEl = wrap.querySelector('.pdp-thumbs');
+  var mainEl   = wrap.querySelector('.pdp-gallery-main');
+
+  var bgEl = document.createElement('div');
+  bgEl.className = 'pdp-gallery-bg';
+  mainEl.insertBefore(bgEl, mainEl.firstChild);
+  function updateBg(src) { bgEl.style.backgroundImage = 'url(' + src + ')'; }
+  updateBg(mainImg.src);
+
+  function goTo(i) {
+    cur = (i + srcs.length) % srcs.length;
+    mainImg.style.opacity = '0';
+    setTimeout(function () {
+      mainImg.src = srcs[cur];
+      updateBg(srcs[cur]);
+      mainImg.style.opacity = '1';
+    }, 150);
+    thumbs.forEach(function (t, idx) { t.classList.toggle('active', idx === cur); });
+    if (counter) counter.textContent = (cur + 1) + ' / ' + srcs.length;
+  }
+
+  thumbs.forEach(function (t, i) { t.addEventListener('click', function () { goTo(i); }); });
+  if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); goTo(cur - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); goTo(cur + 1); });
+
+  function fitThumbs() {
+    if (!thumbsEl || !mainEl) return;
+    thumbsEl.style.maxWidth = mainEl.offsetWidth + 'px';
+  }
+  fitThumbs();
+  window.addEventListener('resize', fitThumbs);
+
+  wrap.querySelector('.pdp-gallery-main').addEventListener('click', function () { openLb(cur); });
+
+  function openLb(start) {
+    var idx = start;
+    var lb = document.createElement('div');
+    lb.className = 'lightbox-overlay';
+    lb.innerHTML =
+      '<button class="lightbox-close">&times;</button>' +
+      '<button class="lightbox-arrow lightbox-prev">&#10094;</button>' +
+      '<img class="lightbox-img" src="' + srcs[idx] + '" alt="">' +
+      '<button class="lightbox-arrow lightbox-next">&#10095;</button>' +
+      '<div class="lightbox-info">' + (idx + 1) + ' / ' + srcs.length + '</div>';
+    document.body.appendChild(lb);
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { lb.classList.add('open'); }, 10);
+
+    var lbImg  = lb.querySelector('.lightbox-img');
+    var lbInfo = lb.querySelector('.lightbox-info');
+
+    function lbGo(i) {
+      idx = (i + srcs.length) % srcs.length;
+      lbImg.src = srcs[idx];
+      lbInfo.textContent = (idx + 1) + ' / ' + srcs.length;
+    }
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(function () { lb.remove(); }, 300);
+    }
+
+    lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
+    lb.querySelector('.lightbox-prev').addEventListener('click', function (e) { e.stopPropagation(); lbGo(idx - 1); });
+    lb.querySelector('.lightbox-next').addEventListener('click', function (e) { e.stopPropagation(); lbGo(idx + 1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+
+    var tx = 0;
+    lb.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 50) lbGo(dx < 0 ? idx + 1 : idx - 1);
+    });
+    document.addEventListener('keydown', function kh(e) {
+      if (!lb.parentNode) { document.removeEventListener('keydown', kh); return; }
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') lbGo(idx - 1);
+      if (e.key === 'ArrowRight') lbGo(idx + 1);
+    });
+  }
 })();
 
 // ── Galerijos Lightbox ────────────────────────────────────────

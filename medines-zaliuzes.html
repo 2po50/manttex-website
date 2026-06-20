@@ -6,7 +6,7 @@
   <title>ManttеX &mdash; Medinės žaliuzės</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=16" />
+  <link rel="stylesheet" href="style.css?v=24" />
 </head>
 <body>
   <!-- HEADER -->
@@ -78,7 +78,8 @@
     <div class="container">
       <div class="pdp-grid">
         <div>
-          <span class="pdp-badge">Natūralu</span>
+          <div class="pdp-badges"><span class="pdp-badge"><svg width="15" height="15" viewBox="0 0 13 13" fill="currentColor"><path d="M6.5 1.5l1.25 2.54 2.8.4-2.02 1.97.48 2.79L6.5 7.9 3.99 9.2l.48-2.79L2.45 4.44l2.8-.4z"/></svg>Natūralu</span>
+          <span class="pdp-badge-premium"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 6l5.5 4L12 3l3.5 7L21 6l-2 10H5zm0 2h14v2H5v-2z"/></svg> Premium</span></div>
           <h1 class="pdp-title">Medinės žaliuzės</h1>
           <p class="pdp-intro">Natūralaus medžio lamelės suteikia patalpai šilumą, ekologiškumą ir unikalų charakterį. Tinka moderniam ir klasikiniam interjerui.</p>
           <ul class="pdp-features">
@@ -101,8 +102,17 @@
             </a>
           </div>
         </div>
-        <div class="pdp-img-wrap">
-          <img src="nuotraukos/darbai/medines/IMG_0655.JPG" alt="Medin&#279;s &#382;aliuz&#279;s">
+        <div class="pdp-gallery">
+          <div class="pdp-gallery-main">
+            <img class="pdp-gallery-img" src="nuotraukos/darbai/medines/IMG_0655.JPG" alt="Medinės žaliuzės">
+            <button class="pdp-gbtn pdp-gbtn-prev">&#10094;</button>
+            <button class="pdp-gbtn pdp-gbtn-next">&#10095;</button>
+            <div class="pdp-gcounter">1 / 2</div>
+          </div>
+          <div class="pdp-thumbs">
+            <img class="pdp-thumb active" src="nuotraukos/darbai/medines/IMG_0655.JPG" alt="">
+            <img class="pdp-thumb" src="nuotraukos/darbai/medines/IMG_0654.JPG" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -219,9 +229,22 @@
     burger.addEventListener('click', function() { navRow.classList.toggle('open'); });
     document.addEventListener('click', function(e) { if (!navRow.contains(e.target) && !burger.contains(e.target)) navRow.classList.remove('open'); });
   </script>
-<script src="animations.js?v=14"></script>
+<script src="animations.js?v=18"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
