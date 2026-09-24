@@ -61,9 +61,8 @@
   });
 })();
 
-// ── Plaukiojantis mygtukas + Popup forma ─────────────────────
+// ── Plaukiojantis mygtukas + konsultacijos forma ─────────────
 (function () {
-  // Floating button
   var floatBtn = document.createElement('button');
   floatBtn.id = 'floatBtn';
   floatBtn.className = 'float-btn';
@@ -73,95 +72,171 @@
     '<span class="float-btn-text">Užsakyti išmatavimą</span>';
   document.body.appendChild(floatBtn);
 
-  // Popup overlay
   var overlay = document.createElement('div');
   overlay.className = 'popup-overlay';
   overlay.setAttribute('role', 'dialog');
   overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-labelledby', 'popupTitle');
   overlay.innerHTML =
     '<div class="popup-box">' +
-      '<button class="popup-close" id="popupClose" aria-label="Uždaryti">&times;</button>' +
-      '<div id="popupFormWrap">' +
-        '<h2 class="popup-title">Pamatuosime jūsų langus. Nemokamai.</h2>' +
-        '<p class="popup-sub">15 minučių. Be įsipareigojimų. Vakare jau turėsite sąmatą.</p>' +
-        '<div class="popup-blocks">' +
-          '<div class="popup-block popup-block-left">' +
-            '<p class="popup-block-title">KĄ ATVEŽAME PARODYTI:</p>' +
-            '<ul class="popup-list">' +
-              '<li><span class="popup-check">&#10003;</span>Pilną audinių pavyzdžių kolekciją</li>' +
-              '<li><span class="popup-check">&#10003;</span>Skirtingus roletų mechanizmus</li>' +
-              '<li><span class="popup-check">&#10003;</span>Spalvų ir tekstūrų variantus</li>' +
-            '</ul>' +
+      '<button class="popup-close" id="popupClose" type="button" aria-label="Uždaryti">&times;</button>' +
+      '<div class="popup-layout">' +
+        '<aside class="popup-trust-panel">' +
+          '<span class="popup-eyebrow">Manttex konsultacija</span>' +
+          '<h2>Nemokamas vizitas į namus</h2>' +
+          '<p>Išmatuosime langus, atsivešime audinių pavyzdžius ir padėsime išsirinkti tinkamiausią sprendimą.</p>' +
+          '<ul><li>&#10003; Matavimas – 0 €</li><li>&#10003; Be įsipareigojimų</li><li>&#10003; Audinių pavyzdžiai vietoje</li></ul>' +
+          '<small>Vizito laiką suderinsime telefonu.</small>' +
+        '</aside>' +
+        '<div id="popupFormWrap" class="popup-form-panel">' +
+          '<div class="popup-step-nav" aria-live="polite"><span id="popupStepNavContact" class="active">Kontaktai</span><span class="popup-step-arrow">&#8594;</span><span id="popupStepNavNeeds">Poreikiai</span></div>' +
+          '<form class="popup-form" id="popupForm" novalidate>' +
+          '<div class="popup-step is-active" id="popupStep1">' +
+            '<h3 class="popup-step-title">Kur galime atvykti?</h3>' +
+            '<p class="popup-step-sub">Palikite telefono numerį ir miestą. Visa kita suderinsime kartu.</p>' +
+            '<div class="popup-fields-grid">' +
+              '<div class="popup-field"><label class="popup-label" for="p-tel">Telefonas</label><input class="popup-input" id="p-tel" name="phone" type="tel" placeholder="+370 ..." autocomplete="tel" inputmode="tel" aria-describedby="p-tel-error"><span class="popup-error" id="p-tel-error"></span></div>' +
+              '<div class="popup-field"><label class="popup-label" for="p-miestas">Miestas</label><input class="popup-input" id="p-miestas" name="city" type="text" placeholder="Pvz. Kaunas" autocomplete="address-level2" aria-describedby="p-miestas-error"><span class="popup-error" id="p-miestas-error"></span></div>' +
+            '</div>' +
+            '<button class="popup-btn" id="popupContinue" type="button">Tęsti &#8594;</button>' +
+            '<p class="popup-trust">Užtruks mažiau nei minutę.</p>' +
           '</div>' +
-          '<div class="popup-block popup-block-right">' +
-            '<p class="popup-block-title">KO JUMS NEREIKĖS:</p>' +
-            '<ul class="popup-list">' +
-              '<li><span class="popup-check">&#10003;</span>Niekur važiuoti</li>' +
-              '<li><span class="popup-check">&#10003;</span>Nieko mokėti už išmatavimą</li>' +
-              '<li><span class="popup-check">&#10003;</span>Iš karto apsispręsti</li>' +
-            '</ul>' +
+          '<div class="popup-step" id="popupStep2" hidden>' +
+            '<h3 class="popup-step-title">Trumpai apie jūsų langus</h3>' +
+            '<p class="popup-step-sub">Pasakykite, kuo domitės – likusias detales ir vizito laiką suderinsime telefonu.</p>' +
+            '<div class="popup-field"><label class="popup-label" for="p-vardas">Vardas</label><input class="popup-input" id="p-vardas" name="name" type="text" placeholder="Jūsų vardas" autocomplete="name" aria-describedby="p-vardas-error"><span class="popup-error" id="p-vardas-error"></span></div>' +
+            '<fieldset class="popup-choice-group"><legend class="popup-label">Kas jus domina?</legend><div class="popup-product-grid" data-choice="productInterest"><button type="button" class="popup-product-card" data-value="Roletai">Roletai<span>&#10003;</span></button><button type="button" class="popup-product-card" data-value="Žaliuzės">Žaliuzės<span>&#10003;</span></button><button type="button" class="popup-product-card" data-value="Tinkleliai">Tinkleliai<span>&#10003;</span></button><button type="button" class="popup-product-card" data-value="Dar renkuosi">Dar renkuosi<span>&#10003;</span></button></div><span class="popup-choice-error" id="p-product-error"></span></fieldset>' +
+            '<button class="popup-note-toggle" id="popupNoteToggle" type="button">＋ Pridėti komentarą</button>' +
+            '<div class="popup-field popup-note-field" id="popupNoteField" hidden><label class="popup-label" for="p-pastaba">Komentaras <span>(nebūtina)</span></label><textarea class="popup-input popup-note" id="p-pastaba" name="note" rows="2" maxlength="500" placeholder="Pvz. domina 3 svetainės langai"></textarea></div>' +
+            '<div class="popup-step-actions"><button class="popup-back" id="popupBack" type="button">&#8592; Atgal</button><button class="popup-btn" id="popupSubmit" type="submit">Rezervuoti nemokamą vizitą &#8594;</button></div>' +
+            '<p class="popup-trust">Nemokamai · Be įsipareigojimų</p><p class="popup-privacy">Laiką suderinsime telefonu. Jūsų duomenis naudosime tik dėl šios užklausos.</p>' +
           '</div>' +
+          '</form>' +
         '</div>' +
-        '<div class="popup-form">' +
-          '<input class="popup-input" id="p-vardas" type="text" placeholder="Jūsų vardas" autocomplete="given-name">' +
-          '<input class="popup-input" id="p-tel" type="tel" placeholder="+370 ..." autocomplete="tel">' +
-          '<select class="popup-input" id="p-miestas">' +
-            '<option value="">Miestas</option>' +
-            '<option value="Kaunas">Kaunas</option>' +
-            '<option value="Klaipeda">Klaipėda</option>' +
-            '<option value="Kitas">Kitas</option>' +
-          '</select>' +
-          '<button class="popup-btn" id="popupSubmit">UŽSAKYTI IŠMATAVIMĄ</button>' +
-          '<p class="popup-trust">Susisieksime per 2 valandas darbo metu.</p>' +
-        '</div>' +
-      '</div>' +
-      '<div class="popup-success" id="popupSuccess">' +
-        '<div class="popup-success-icon">&#10003;</div>' +
-        '<h3>Ačiū!</h3>' +
-        '<p>Susisieksime su jumis artimiausiu metu.</p>' +
+        '<div class="popup-success" id="popupSuccess" hidden><div class="popup-success-icon">&#10003;</div><h3>Vizito užklausa gauta!</h3><p id="popupSuccessText">Ačiū! Netrukus susisieksime telefonu ir suderinsime jums patogų laiką.</p><div class="popup-summary" id="popupSummary"></div><button class="popup-btn popup-success-close" id="popupSuccessClose" type="button">Uždaryti</button></div>' +
       '</div>' +
     '</div>';
   document.body.appendChild(overlay);
 
+  var formState = { name: '', phone: '', city: '', productInterest: '', note: '' };
+  var lastTrigger = null;
+  var step = 1;
+  var formWrap = document.getElementById('popupFormWrap');
+  var form = document.getElementById('popupForm');
+  var success = document.getElementById('popupSuccess');
+
+  function field(id) { return document.getElementById(id); }
+  function setError(id, message) {
+    var input = field(id);
+    var error = field(id + '-error');
+    input.classList.toggle('error', Boolean(message));
+    error.textContent = message || '';
+  }
+  function updateProgress() {
+    field('popupStepNavContact').classList.toggle('active', step === 1);
+    field('popupStepNavContact').classList.toggle('complete', step === 2);
+    field('popupStepNavNeeds').classList.toggle('active', step === 2);
+  }
+  function showStep(nextStep) {
+    step = nextStep;
+    field('popupStep1').hidden = step !== 1;
+    field('popupStep2').hidden = step !== 2;
+    updateProgress();
+    setTimeout(function () { field(step === 1 ? 'p-tel' : 'p-vardas').focus(); }, 50);
+  }
+  function resetPopup() {
+    step = 1;
+    formState = { name: '', phone: '', city: '', productInterest: '', note: '' };
+    form.reset();
+    formWrap.hidden = false;
+    success.hidden = true;
+    document.querySelectorAll('.popup-error').forEach(function (error) { error.textContent = ''; });
+    document.querySelectorAll('.popup-input').forEach(function (input) { input.classList.remove('error'); });
+    document.querySelectorAll('.popup-product-card').forEach(function (card) { card.classList.remove('selected'); card.setAttribute('aria-pressed', 'false'); });
+    field('popupNoteField').hidden = true;
+    field('popupNoteToggle').textContent = '＋ Pridėti komentarą';
+    field('p-product-error').textContent = '';
+    updateProgress();
+  }
   function openPopup() {
+    lastTrigger = document.activeElement;
+    resetPopup();
     overlay.classList.add('open');
-    setTimeout(function () { document.getElementById('p-vardas').focus(); }, 50);
+    document.body.classList.add('modal-open');
+    setTimeout(function () { field('p-tel').focus(); }, 50);
   }
   function closePopup() {
     overlay.classList.remove('open');
-    setTimeout(function () {
-      document.getElementById('popupFormWrap').style.display = '';
-      document.getElementById('popupSuccess').classList.remove('show');
-      document.getElementById('p-vardas').value = '';
-      document.getElementById('p-tel').value = '';
-      document.getElementById('p-miestas').value = '';
-      ['p-vardas', 'p-tel'].forEach(function (id) {
-        document.getElementById(id).classList.remove('error');
-      });
-    }, 300);
+    document.body.classList.remove('modal-open');
+    resetPopup();
+    if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+  }
+  function validateStep1() {
+    var phone = field('p-tel').value.trim();
+    var city = field('p-miestas').value.trim();
+    var valid = true;
+    setError('p-tel', ''); setError('p-miestas', '');
+    if (!phone) { setError('p-tel', 'Įveskite telefono numerį.'); valid = false; }
+    else if (!/^(?:\+370|370|8)[\s-]?\d[\s\d-]{6,13}$/.test(phone)) { setError('p-tel', 'Įveskite galiojantį telefono numerį.'); valid = false; }
+    if (!city) { setError('p-miestas', 'Įveskite miestą.'); valid = false; }
+    if (valid) { formState.phone = phone; formState.city = city; }
+    return valid;
+  }
+  function renderSummary() {
+    var summary = field('popupSummary');
+    summary.textContent = '';
+    [['Telefonas', formState.phone], ['Miestas', formState.city], ['Domina', formState.productInterest]].forEach(function (item) {
+      var row = document.createElement('span');
+      var label = document.createElement('strong');
+      label.textContent = item[0];
+      row.appendChild(label);
+      row.appendChild(document.createTextNode(item[1]));
+      summary.appendChild(row);
+    });
   }
 
   floatBtn.addEventListener('click', openPopup);
-  document.getElementById('popupClose').addEventListener('click', closePopup);
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closePopup();
+  field('popupClose').addEventListener('click', closePopup);
+  field('popupSuccessClose').addEventListener('click', closePopup);
+  field('popupContinue').addEventListener('click', function () { if (validateStep1()) showStep(2); });
+  field('popupBack').addEventListener('click', function () { showStep(1); });
+  field('popupNoteToggle').addEventListener('click', function () {
+    var noteField = field('popupNoteField');
+    noteField.hidden = !noteField.hidden;
+    this.textContent = noteField.hidden ? '＋ Pridėti komentarą' : '− Paslėpti komentarą';
+    if (!noteField.hidden) field('p-pastaba').focus();
   });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closePopup();
+  overlay.addEventListener('click', function (event) { if (event.target === overlay) closePopup(); });
+  document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && overlay.classList.contains('open')) closePopup(); });
+  document.querySelectorAll('.popup-product-card').forEach(function (card) {
+    card.setAttribute('aria-pressed', 'false');
+    card.addEventListener('click', function () {
+      document.querySelectorAll('.popup-product-card').forEach(function (item) { item.classList.remove('selected'); item.setAttribute('aria-pressed', 'false'); });
+      card.classList.add('selected');
+      card.setAttribute('aria-pressed', 'true');
+      formState.productInterest = card.getAttribute('data-value');
+      field('p-product-error').textContent = '';
+    });
   });
-
-  document.getElementById('popupSubmit').addEventListener('click', function () {
-    var vardas = document.getElementById('p-vardas');
-    var tel    = document.getElementById('p-tel');
-    var valid  = true;
-    [vardas, tel].forEach(function (f) { f.classList.remove('error'); });
-    if (!vardas.value.trim()) { vardas.classList.add('error'); vardas.focus(); valid = false; }
-    if (!tel.value.trim())   { tel.classList.add('error'); if (valid) tel.focus(); valid = false; }
-    if (!valid) return;
-
-    document.getElementById('popupFormWrap').style.display = 'none';
-    document.getElementById('popupSuccess').classList.add('show');
-    setTimeout(closePopup, 2800);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var name = field('p-vardas').value.trim();
+    setError('p-vardas', '');
+    if (!name) { setError('p-vardas', 'Įveskite vardą.'); field('p-vardas').focus(); return; }
+    if (!formState.productInterest) { field('p-product-error').textContent = 'Pasirinkite, kuo labiausiai domitės.'; return; }
+    formState.name = name;
+    formState.note = field('p-pastaba').value.trim();
+    var submit = field('popupSubmit');
+    submit.disabled = true;
+    submit.textContent = 'Siunčiama...';
+    setTimeout(function () {
+      submit.disabled = false;
+      submit.textContent = 'Rezervuoti nemokamą vizitą →';
+      formWrap.hidden = true;
+      field('popupSuccessText').textContent = 'Ačiū, ' + formState.name + '. Netrukus susisieksime telefonu ir suderinsime jums patogų laiką.';
+      renderSummary();
+      success.hidden = false;
+    }, 650);
   });
 })();
 
